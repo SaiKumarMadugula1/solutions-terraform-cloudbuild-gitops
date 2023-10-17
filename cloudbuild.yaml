@@ -24,31 +24,12 @@ steps:
       echo "$BRANCH_NAME"
       echo "***********************"
 
-- id: 'tf init'
-  name: 'hashicorp/terraform:1.0.0'
-  entrypoint: 'sh'
-  args: 
-  - '-c'
-  - |
-      terraform init || exit 1
-
-
-# [START tf-plan]
-- id: 'tf plan'
-  name: 'hashicorp/terraform:1.0.0'
-  entrypoint: 'sh'
-  args: 
-  - '-c'
-  - | 
-      terraform plan || exit 1
-# [END tf-plan]
-
 # [START tf-apply]
-- id: 'tf apply'
+- id: 'tf destroy'
   name: 'hashicorp/terraform:1.0.0'
   entrypoint: 'sh'
   args: 
   - '-c'
   - |       
-      terraform apply -auto-approve
+      terraform destroy -target=google_compute_instance.fedora38-java-mvn-1
 # [END tf-apply]      
