@@ -1,6 +1,20 @@
 # This code is compatible with Terraform 4.25.0 and versions that are backwards compatible to 4.25.0.
 # For information about validating this Terraform code, see https://developer.hashicorp.com/terraform/tutorials/gcp-get-started/google-cloud-platform-build#format-and-validate-the-configuration
 
+resource "google_compute_firewall" "allow_port_8080" {
+  name    = "allow-port-8080"
+  network = "projects/iac-project-397409/global/networks/default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["8080"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+
+  target_tags = ["http-server", "https-server"]
+}
+
 resource "google_compute_instance" "fedora38-java-mvn-1" {
   boot_disk {
     auto_delete = true
@@ -45,6 +59,7 @@ resource "google_compute_instance" "fedora38-java-mvn-1" {
     }
 
     subnetwork = "projects/iac-project-397409/regions/us-central1/subnetworks/default"
+    security_groups = [google_compute_firewall.allow_port_8080.name]
   }
 
   scheduling {
