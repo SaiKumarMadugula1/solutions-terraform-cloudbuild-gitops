@@ -59,7 +59,7 @@ resource "google_compute_instance" "fedora38-java-mvn-1" {
     }
 
     subnetwork = "projects/iac-project-397409/regions/us-central1/subnetworks/default"
-    security_groups = [google_compute_firewall.allow_port_8080.name]
+    depends_on = [ google_compute_firewall.allow_port_8080 ]
   }
 
   scheduling {
