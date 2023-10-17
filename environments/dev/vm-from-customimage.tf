@@ -15,6 +15,20 @@ resource "google_compute_firewall" "allow_port_8080" {
   target_tags = ["http-server", "https-server"]
 }
 
+resource "google_compute_firewall" "allow_port_9090" {
+  name    = "allow-port-9090"
+  network = "projects/iac-project-397409/global/networks/default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["9090"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+
+  target_tags = ["http-server", "https-server"]
+}
+
 resource "google_compute_instance" "fedora38-java-mvn-1" {
   boot_disk {
     auto_delete = true
@@ -59,7 +73,6 @@ resource "google_compute_instance" "fedora38-java-mvn-1" {
     }
 
     subnetwork = "projects/iac-project-397409/regions/us-central1/subnetworks/default"
-    depends_on = [ google_compute_firewall.allow_port_8080 ]
   }
 
   scheduling {
