@@ -30,18 +30,8 @@ steps:
   args: 
   - '-c'
   - |
-      for dir in environments/*/
-      do 
-        cd ${dir}   
-        env=${dir%*/}
-        env=${env#*/}
-        echo ""
-        echo "*************** TERRAFORM INIT ******************"
-        echo "******* At environment: ${env} ********"
-        echo "*************************************************"
-        terraform init || exit 1
-        cd ../../
-      done
+      terraform init || exit 1
+
 
 # [START tf-plan]
 - id: 'tf plan'
@@ -50,18 +40,7 @@ steps:
   args: 
   - '-c'
   - | 
-      for dir in environments/*/
-      do 
-        cd ${dir}   
-        env=${dir%*/}
-        env=${env#*/}  
-        echo ""
-        echo "*************** TERRAFOM PLAN ******************"
-        echo "******* At environment: ${env} ********"
-        echo "*************************************************"
-        terraform plan || exit 1
-        cd ../../
-      done
+      terraform plan || exit 1
 # [END tf-plan]
 
 # [START tf-apply]
