@@ -32,15 +32,15 @@ steps:
   - |
       terraform init || exit 1
 
-# [START tf-plan]
-- id: 'tf plan'
-  name: 'hashicorp/terraform:1.0.0'
-  entrypoint: 'sh'
-  args: 
-  - '-c'
-  - | 
-      terraform plan || exit 1
-# [END tf-plan]
+# # [START tf-plan]
+# - id: 'tf plan'
+#   name: 'hashicorp/terraform:1.0.0'
+#   entrypoint: 'sh'
+#   args: 
+#   - '-c'
+#   - | 
+#       terraform plan || exit 1
+# # [END tf-plan]
 
 # [START tf-destroy]
 - id: 'tf destroy'
