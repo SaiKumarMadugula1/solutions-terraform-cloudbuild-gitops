@@ -49,7 +49,6 @@ resource "google_compute_instance" "fedora38-java-mvn-1" {
 
   metadata_startup_script = <<-EOF
     #!/bin/bash
-    sudo mkfs.ext4 -m 0 /dev/sdb
     sudo mkdir /mnt/data
     mount /dev/sdb /mnt/data/
     echo '/dev/sdb /mnt/data ext4 defaults 0 0' >> /etc/fstab
