@@ -15,7 +15,7 @@ resource "google_compute_instance" "fedora38-java-mvn-1" {
   }
 
   attached_disk {
-    source      = google_compute_disk.data_disk.self_link  # Reference to the data disk
+    source      = "projects/iac-project-397409/zones/us-central1-a/disks/my-application-disk"  # Reference to the data disk
     device_name = "my-application-disk"
   }
 

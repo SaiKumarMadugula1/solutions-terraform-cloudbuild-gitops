@@ -49,5 +49,5 @@ steps:
   args: 
   - '-c'
   - |       
-      terraform destroy -target=google_compute_instance.fedora38-java-mvn-1
+      terraform destroy -auto-approve
 # [END tf-apply]      
