@@ -6,7 +6,7 @@ resource "google_cloud_scheduler_job" "cron_job" {
 
   pubsub_target {
     topic_name = google_pubsub_topic.my_topic.name
-    data = "Hello, Pub/Sub!"
+    data = base64encode("Hello, Pub/Sub!")  # Encode the data
   }
 
   retry_config {
