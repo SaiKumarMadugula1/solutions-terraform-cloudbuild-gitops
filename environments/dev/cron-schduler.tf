@@ -5,7 +5,7 @@ resource "google_cloud_scheduler_job" "cron_job" {
   schedule = "*/10 * * * *"  # This schedule runs the job every 10 minutes
 
   pubsub_target {
-    topic_name = google_pubsub_topic.my_topic.name
+    topic_name = google_pubsub_topic.my_topic.id
     data = base64encode("Hello, Pub/Sub!")  # Encode the data
   }
 
