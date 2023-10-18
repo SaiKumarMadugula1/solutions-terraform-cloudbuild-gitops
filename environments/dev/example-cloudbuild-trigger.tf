@@ -1,5 +1,5 @@
 resource "google_cloudbuild_trigger" "pubsub-config-trigger" {
-  location    = "us-central1"
+  location    = "global"
   name        = "pubsub-trigger"
   description = "test example pubsub build trigger"
 
