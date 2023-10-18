@@ -55,7 +55,6 @@ resource "google_compute_instance" "fedora38-java-mvn-1" {
     cd /mnt/data/
     java -jar jenkins.war --httpPort=9090 &
     cd /mnt/data/spring-petclinic
-    ./mvnw package
     java -jar target/*.jar &
   EOF
 
