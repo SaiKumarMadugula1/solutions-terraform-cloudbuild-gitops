@@ -17,6 +17,7 @@ resource "google_cloud_scheduler_job" "cron_job" {
 
 resource "google_pubsub_topic" "my_topic" {
   name = "projects/iac-project-397409/topics/createschduler"
+  project = "iac-project-397409"
 }
 
 # resource "google_pubsub_subscription" "my_subscription" {
