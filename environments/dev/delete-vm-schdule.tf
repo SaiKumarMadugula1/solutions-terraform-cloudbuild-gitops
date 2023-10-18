@@ -5,7 +5,7 @@ resource "google_cloud_scheduler_job" "deletevm_cron_job" {
   time_zone= "Europe/Berlin"
 
   pubsub_target {
-    topic_name = google_pubsub_topic.my_topic.id
+    topic_name = google_pubsub_topic.deletevm_topic.id
     data = base64encode("Deleting VM")  # Encode the data
   }
 
@@ -15,7 +15,7 @@ resource "google_cloud_scheduler_job" "deletevm_cron_job" {
   }
 }
 
-resource "google_pubsub_topic" "my_topic" {
+resource "google_pubsub_topic" "deletevm_topic" {
   name = "deletevm"
   project = "iac-project-397409"
 }

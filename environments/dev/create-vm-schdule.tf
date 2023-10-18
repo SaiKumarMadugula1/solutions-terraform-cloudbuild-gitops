@@ -5,7 +5,7 @@ resource "google_cloud_scheduler_job" "createvm_cron_job" {
   time_zone= "Europe/Berlin"
 
   pubsub_target {
-    topic_name = google_pubsub_topic.my_topic.id
+    topic_name = google_pubsub_topic.createvm_topic.id
     data = base64encode("Creating VM")  # Encode the data
   }
 
@@ -15,7 +15,7 @@ resource "google_cloud_scheduler_job" "createvm_cron_job" {
   }
 }
 
-resource "google_pubsub_topic" "my_topic" {
+resource "google_pubsub_topic" "createvm_topic" {
   name = "createvm"
   project = "iac-project-397409"
 }
