@@ -15,7 +15,7 @@ resource "google_cloudbuild_trigger" "pubsub-config-trigger" {
 
   git_file_source {
     path      = "cloudbuild.yaml"
-    uri       = ""https://github.com/SaiKumarMadugula1/solutions-terraform-cloudbuild-gitops"
+    uri       = "https://github.com/SaiKumarMadugula1/solutions-terraform-cloudbuild-gitops"
     revision  = "refs/heads/dev"
     repo_type = "GITHUB"
   }
