@@ -19,10 +19,4 @@ resource "google_cloudbuild_trigger" "deletevm-cloudbuild-trigger" {
     revision  = "refs/heads/dev"
     repo_type = "GITHUB"
   }
-
-  substitutions = {
-    _ACTION       = "$(body.message.data.action)"
-  }
-
-  filter = "_ACTION.matches('INSERT')"
 }
