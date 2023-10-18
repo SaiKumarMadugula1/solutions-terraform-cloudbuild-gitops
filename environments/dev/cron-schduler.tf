@@ -2,7 +2,7 @@ resource "google_cloud_scheduler_job" "cron_job" {
   name     = "my-cron-job"
   region = "us-central1"
   schedule = "*/10 * * * *"  # This schedule runs the job every 10 minutes
-  time_zone= "Central European Summer Time (CEST)"
+  time_zone= "Europe/Germany"
 
   pubsub_target {
     topic_name = google_pubsub_topic.my_topic.id
