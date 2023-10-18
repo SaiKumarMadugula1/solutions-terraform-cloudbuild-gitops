@@ -53,10 +53,10 @@ resource "google_compute_instance" "fedora38-java-mvn-1" {
     mount /dev/sdb /mnt/data/
     echo '/dev/sdb /mnt/data ext4 defaults 0 0' >> /etc/fstab
     cd /mnt/data/
-    java -jar jenkins.war --httpPort=9090
+    java -jar jenkins.war --httpPort=9090 &
     cd /mnt/data/spring-petclinic
     ./mvnw package
-    java -jar target/*.jar
+    java -jar target/*.jar &
   EOF
 
   can_ip_forward      = false
