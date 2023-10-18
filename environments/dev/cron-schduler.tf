@@ -1,6 +1,6 @@
 resource "google_cloud_scheduler_job" "cron_job" {
   name     = "my-cron-job"
-  location = "us-central1"
+  region = "us-central1"
 
   schedule = "*/10 * * * *"  # This schedule runs the job every 10 minutes
 
