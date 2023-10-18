@@ -19,8 +19,8 @@ resource "google_pubsub_topic" "my_topic" {
   name = "projects/iac-project-397409/topics/createschduler"
 }
 
-resource "google_pubsub_subscription" "my_subscription" {
-  name   = "my-subscription"
-  topic  = google_pubsub_topic.my_topic.name
-  ack_deadline_seconds = 10
-}
+# resource "google_pubsub_subscription" "my_subscription" {
+#   name   = "my-subscription"
+#   topic  = google_pubsub_topic.my_topic.name
+#   ack_deadline_seconds = 10
+# }
