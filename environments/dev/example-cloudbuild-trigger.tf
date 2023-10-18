@@ -1,24 +1,28 @@
-resource "google_cloudbuild_trigger" "my_trigger" {
-  name     = "my-trigger"
-  project  = "iac-project-397409"
-  description = "Trigger for Cloud Build"
+resource "google_cloudbuild_trigger" "pubsub-config-trigger" {
+  location    = "us-central1"
+  name        = "pubsub-trigger"
+  description = "test example pubsub build trigger"
 
-  trigger_template {
-    branch_name {
-      branch_name = "dev"
-    }
-    repo_name {
-      repo_name = "SaiKumarMadugula1/solutions-terraform-cloudbuild-gitops (GitHub App)"
-    }
+  pubsub_config {
+    topic = "projects/iac-project-397409/topics/createschduler"
   }
 
-  build {
-    name = "gcr.io/cloud-builders/gcloud"
-    args = ["builds", "submit", ".", "--config=cloudbuild.yaml"]
-    #dir  = "cloudbuild"
+  source_to_build {
+    uri       = "https://github.com/SaiKumarMadugula1/solutions-terraform-cloudbuild-gitops"
+    ref       = "refs/heads/dev"
+    repo_type = "GITHUB"
   }
 
-    substitutions = {
-      _CLOUD_PUBSUB_TOPIC = "projects/iac-project-397409/topics/createschduler"
-    }
+  git_file_source {
+    path      = "cloudbuild.yaml"
+    uri       = ""https://github.com/SaiKumarMadugula1/solutions-terraform-cloudbuild-gitops"
+    revision  = "refs/heads/dev"
+    repo_type = "GITHUB"
   }
+
+  substitutions = {
+    _ACTION       = "$(body.message.data.action)"
+  }
+
+  filter = "_ACTION.matches('INSERT')"
+}
