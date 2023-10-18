@@ -15,7 +15,7 @@ resource "google_cloud_scheduler_job" "createvm_cron_job" {
   }
 }
 
-resource "google_pubsub_topic" "createvm_topic" {
-  name = "createvm"
-  project = "iac-project-397409"
-}
+# resource "google_pubsub_topic" "createvm_topic" {
+#   name = "createvm"
+#   project = "iac-project-397409"
+# }

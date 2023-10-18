@@ -15,7 +15,7 @@ resource "google_cloud_scheduler_job" "deletevm_cron_job" {
   }
 }
 
-resource "google_pubsub_topic" "deletevm_topic" {
-  name = "deletevm"
-  project = "iac-project-397409"
-}
+# resource "google_pubsub_topic" "deletevm_topic" {
+#   name = "deletevm"
+#   project = "iac-project-397409"
+# }
