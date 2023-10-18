@@ -1,4 +1,4 @@
-resource "google_cloud_build_trigger" "my_trigger" {
+resource "google_cloudbuild_trigger" "my_trigger" {
   name     = "my-trigger"
   project  = "iac-project-397409"
   description = "Trigger for Cloud Build"
