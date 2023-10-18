@@ -1,5 +1,5 @@
 resource "google_cloud_scheduler_job" "deletevm_cron_job" {
-  name     = "create-vm"
+  name     = "delete-vm"
   region = "us-central1"
   schedule = "0 18 * * 1-5"  # This schedule runs the job on mon-fri at 6PM
   time_zone= "Europe/Berlin"
