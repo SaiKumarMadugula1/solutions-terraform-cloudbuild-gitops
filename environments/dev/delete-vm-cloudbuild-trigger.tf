@@ -1,7 +1,7 @@
 resource "google_cloudbuild_trigger" "deletevm-cloudbuild-trigger" {
   location    = "global"
   name        = "deletevm-trigger"
-  description = "test example pubsub build trigger"
+  description = "delete vm pubsub build trigger"
 
   pubsub_config {
     topic = "projects/iac-project-397409/topics/deletevm"

@@ -1,7 +1,7 @@
 resource "google_cloudbuild_trigger" "createvm-cloudbuild-trigger" {
   location    = "global"
   name        = "createvm-trigger"
-  description = "test example pubsub build trigger"
+  description = "create vm pubsub build trigger"
 
   pubsub_config {
     topic = "projects/iac-project-397409/topics/createvm"
