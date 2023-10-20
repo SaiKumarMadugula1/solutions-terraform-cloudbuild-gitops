@@ -1,0 +1,12 @@
+steps:
+- name: "hashicorp/terraform:1.0.0"
+  #args: ["ansible-playbook", "path/to/your/playbook.yml"]
+  args:
+  - /bin/sh
+  - -c
+  - |
+    cd ansible/inventory/
+    ansible-inventory --list -i gcp.yaml
+    cd ../
+    ansible-playbook playbook.yaml -i ansible/inventory/gcp.yaml
+  dir: "ansible/playbook.yaml"

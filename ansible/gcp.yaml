@@ -1,0 +1,13 @@
+---
+plugin: gcp_compute
+projects:
+  - iac-project-397409
+auth_kind: serviceaccount
+service_account_file: /mnt/data/ansible/inventory/service-account.json
+keyed_groups:
+  - key: labels
+    prefix: label
+  - key: zone
+    prefix: zone
+groups:
+  env: "'test' in (labels|list)"
