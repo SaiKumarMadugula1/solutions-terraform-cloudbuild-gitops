@@ -1,12 +1,7 @@
 steps:
-- name: "hashicorp/terraform:1.0.0"
-  #args: ["ansible-playbook", "path/to/your/playbook.yml"]
+- name: "gcr.io/cloud-builders/gcloud"
+  entrypoint: "bash"
   args:
-  - /bin/sh
-  - -c
+  - "-c"
   - |
-    cd ansible/inventory/
-    ansible-inventory --list -i gcp.yaml
-    cd ../
-    ansible-playbook playbook.yaml -i ansible/inventory/gcp.yaml
-  dir: "ansible/playbook.yaml"
+    gcloud compute ssh your-instance-name --zone=your-zone --project=your-project-id --command='ansible-playbook /mnt/data/ansible/playbook.yaml -i /mnt/data/ansible/inventory/gcp.yaml'
