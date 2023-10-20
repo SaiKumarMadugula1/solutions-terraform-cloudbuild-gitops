@@ -4,4 +4,4 @@ steps:
   args:
   - "-c"
   - |
-    gcloud compute ssh your-instance-name --zone=your-zone --project=your-project-id --command='ansible-playbook /mnt/data/ansible/playbook.yaml -i /mnt/data/ansible/inventory/gcp.yaml'
+    gcloud compute ssh your-instance-name --zone=your-zone --project=iac-project-397409 --command='ansible-playbook /mnt/data/ansible/playbook.yaml -i /mnt/data/ansible/inventory/gcp.yaml'
