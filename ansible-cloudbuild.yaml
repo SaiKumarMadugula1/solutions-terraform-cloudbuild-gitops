@@ -4,4 +4,4 @@ steps:
   args:
   - "-c"
   - |
-    gcloud compute ssh your-instance-name --zone=us-central1-a --project=iac-project-397409 --command='ansible-playbook /mnt/data/ansible/playbook.yaml -i /mnt/data/ansible/inventory/gcp.yaml'
+    gcloud compute ssh fedora38-java-mvn-vm --zone=us-central1-a --project=iac-project-397409 --command='ansible-playbook /mnt/data/ansible/playbook.yaml -i /mnt/data/ansible/inventory/gcp.yaml'
